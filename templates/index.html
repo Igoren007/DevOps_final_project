@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1 class="hhh1">{% block title %} Welcome to my project {% endblock %}</h1>
-    {% for post in posts %}
+    {% for post in posts[::-1] %}
         <a href="{{ url_for('post', post_id=post['id']) }}">
             <h2>{{ post['title'] }}</h2>
         </a>
