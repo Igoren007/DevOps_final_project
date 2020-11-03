@@ -4,7 +4,7 @@ from werkzeug.exceptions import abort
 
 
 def get_db_connection():
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('/database/database.db')
     conn.row_factory = sqlite3.Row
     return conn
 
@@ -94,4 +94,4 @@ def about():
     return render_template('about.html')
 
 if __name__ == '__main__':
- app.run(host="0.0.0.0", debug=True, port=80)
+ app.run(host="0.0.0.0")
