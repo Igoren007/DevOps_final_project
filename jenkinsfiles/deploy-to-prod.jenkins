@@ -40,7 +40,7 @@ pipeline {
         stage('Docker Deploy'){
             steps{
             echo " ============== deploy to production =================="
-            ansiblePlaybook credentialsId: 'prod-server', disableHostKeyChecking: true, extras: "-e DOCKER_TAG=${DOCKER_TAG}", installation: 'ansible', inventory: 'hosts.txt', playbook: 'ansible/start_stop_container.yml'
+            ansiblePlaybook credentialsId: 'prod-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'hosts.txt', playbook: 'ansible/start_stop_container.yml'
             }
         }
     }
