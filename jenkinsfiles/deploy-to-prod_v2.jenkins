@@ -11,19 +11,10 @@ pipeline {
         timestamps()
     }
     stages {
-        
-        
-        stage("docker push") {
-            steps {
-                echo " ============== start pushing image =================="
-                sh '''
-                docker push igoren007/my_app1:latest
-                '''
-            }
-        }
+
         stage('Docker Deploy'){
             steps{
-            	sh "hostname"
+            	sh "ssh ubuntu@172.31.40.218 -v"
             }
         }
     }
