@@ -5,16 +5,16 @@
 
   tasks:
 
-  - name: Stop a container
-    docker_container:
-     name: myapp
-     state: stopped
-
-  - name: Remove container
-    docker_container:
-     name: myapp
-     state: absent
-
+#  - name: Stop a container
+#    docker_container:
+#     name: myapp
+#     state: stopped
+#
+#  - name: Remove container
+#    docker_container:
+#     name: myapp
+#     state: absent
+#
   - name: Start new container
     docker_container:
       name: myapp
