@@ -14,7 +14,7 @@ pipeline {
 
         stage('Docker Deploy'){
             steps{
-            	sh "ssh ubuntu@172.31.40.218 -v"
+            	sh "ssh -i id_rsa ubuntu@172.31.40.218 -v"
             }
         }
     }
