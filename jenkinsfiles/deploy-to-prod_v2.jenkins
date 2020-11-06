@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Docker Deploy'){
             steps{
-            	sh "pwd"
+            	sh "hostname"
             }
         }
     }
