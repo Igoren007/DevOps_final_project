@@ -5,16 +5,22 @@
 
   tasks:
 
-#  - name: Stop a container
-#    docker_container:
-#     name: myapp
-#     state: stopped
-#
-#  - name: Remove container
-#    docker_container:
-#     name: myapp
-#     state: absent
-#
+  - name: Stop a container
+    docker_container:
+      name: myapp
+      state: stopped
+
+  - name: Remove container
+    docker_container:
+      name: myapp
+      state: absent
+
+  - name: Remove image
+    docker_image:
+      state: absent
+      name: igoren007/my_app1
+      tag: latest
+
   - name: Start new container
     docker_container:
       name: myapp
