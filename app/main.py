@@ -5,7 +5,7 @@ from werkzeug.exceptions import abort
 
 
 def get_db_connection():
-    conn = psycopg2.connect(dbname='test1', user='postgres', password='Aa12345', host='localhost')
+    conn = psycopg2.connect(dbname='blog_db', user='postgres', password='Aa12345', host='172.31.42.115')
     conn.autocommit = True#    return conn
     cursor = conn.cursor()
     return cursor
