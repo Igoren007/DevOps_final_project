@@ -2,30 +2,14 @@
 - name: Working with docker container on prod server
   hosts: prod
   become: yes
-  vars:
-    img_name: igoren007/my_app1
 
   tasks:
 
-#  - name: Stop a container
-#    docker_container:
-#      name: myapp
-#      state: stopped
+  - name: Stop container
+    shell: docker stop myapp || true && docker rm myapp || true
 
-#  - name: Remove container
-#    docker_container:
-#      name: myapp
-#      state: absent
-
-#  - name: Remove image
-#    docker_image:
-#      state: absent
-#      name: igoren007/my_app1
-#      tag: latest
-
-  - name: Check container
-      shell: sudo docker ps -a | awk -v image=img_name '$2 == image {print $1}'
-      register: id_cont
+  - name: Remove old image
+    shell: docker rmi igoren007/my_app1 || true
 
   - name: Start new container
     docker_container:
