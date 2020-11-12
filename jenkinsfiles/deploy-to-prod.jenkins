@@ -35,6 +35,7 @@ pipeline {
                 sh '''
                 docker push igoren007/my_app1:latest
                 '''
+                sh 'docker rmi igoren007/my_app1:latest'
             }
         }
         stage('Docker Deploy'){
