@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('.') {
-                    sh 'docker build -t igoren007/my_app1:latest . '
+                    sh 'docker build -t igoren007/my_app1:$BUILD_NUMBER . '
                 }
             }
         }
@@ -33,15 +33,15 @@ pipeline {
             steps {
                 echo " ============== start pushing image =================="
                 sh '''
-                docker push igoren007/my_app1:latest
+                docker push igoren007/my_app1:$BUILD_NUMBER
                 '''
-                sh 'docker rmi igoren007/my_app1:latest'
+                sh 'docker rmi igoren007/my_app1:$BUILD_NUMBER'
             }
         }
         stage('Docker Deploy'){
             steps{
             echo " ============== deploy to production =================="
-            ansiblePlaybook credentialsId: 'prod-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'ansible/hosts.txt', playbook: 'ansible/start_stop_container.yml'
+            ansiblePlaybook credentialsId: 'prod-server', disableHostKeyChecking: true, installation: 'ansible', inventory: 'ansible/hosts.txt', playbook: 'ansible/start_stop_container.yml', extraVars: id: $BUILD_NUMBER
             }
         }
     }
