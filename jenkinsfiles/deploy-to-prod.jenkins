@@ -33,9 +33,9 @@ pipeline {
             steps {
                 echo " ============== start pushing image =================="
                 sh '''
-                docker push igoren007/my_app1:$BUILD_NUMBER
+                docker push igoren007/my_app1:v$BUILD_NUMBER
                 '''
-                sh 'docker rmi igoren007/my_app1:$BUILD_NUMBER'
+                sh 'docker rmi igoren007/my_app1:v$BUILD_NUMBER'
             }
         }
         stage('Docker Deploy'){
