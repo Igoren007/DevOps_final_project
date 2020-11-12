@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('.') {
-                    sh 'docker build -t igoren007/my_app1:latest . '
+                    sh 'docker build -t igoren007/my_app1:v$BUILD_NUMBER . '
                 }
             }
         }

@@ -14,7 +14,7 @@
   - name: Start new container
     docker_container:
       name: myapp
-      image: "igoren007/my_app1:latest"
+      image: "igoren007/my_app1"
       state: started
       published_ports:
         - 0.0.0.0:80:80
